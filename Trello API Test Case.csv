@@ -1,0 +1,109 @@
+REQUIREMENTS TRACEABILITY MATRIX,,,,,,,,,
+Project Name:,API Testing of Trello,,,,,,,,
+Reviewer/Approver,Tonny,,,,,,,,
+Traceability #,Requirement ID,Technical Requiremnt ID,Test Case ID,,,,,,
+a,,,TC01,,,,,,
+b,,,TC02,,,,,,
+c,,,TC03,,,,,,
+b,,,TC04,,,,,,
+,,,,,,,,,
+TEST SCENARIOS,,,,,,,,,
+,,,,,,,,,
+Test Scenario ID,Requirements,Test Scenario Description,Test Case ,,,,,,
+TS01,,Create board,Verify that a new board can be created successfully.,,,,,,
+TS02,,Create list,Verify that a new list can be created on the board.,,,,,,
+TS03,,Create card,Verify that a new card can be created in the list.,,,,,,
+TS04,,Update board,Verify that a board can be updated successfully.,,,,,,
+TS05,,Update list,Verify that a list can be updated successfully.,,,,,,
+TS06,,Update card,Verify that a card can be updated successfully.,,,,,,
+TS07,,Read board,Verify that the board details can be retrieved successfully.,,,,,,
+TS08,,Read list,Verify that the list details can be retrieved successfully.,,,,,,
+TS09,,Read card,Verify that the card details can be retrieved successfully.,,,,,,
+TS10,,Create checklist,Verify that a checklist can be created for a card.,,,,,,
+TS11,,Update checklist,Verify that a checklist can be updated successfully.,,,,,,
+TS12,,Get checklist,Verify that the checklist details can be retrieved successfully.,,,,,,
+TS13,,Delete checklist,Verify that a checklist can be deleted successfully.,,,,,,
+TS14,,Delete card,Verify that a card can be deleted successfully.,,,,,,
+TS15,,Delete list,Verify that a list can be deleted successfully.,,,,,,
+TS16,,Delete board,Verify that a board can be deleted successfully.,,,,,,
+,,,,,,,,,
+TEST CASES,,,,,,,,,
+,,,,,,,,,
+Test Scenario ID,Test Case ID,Test Case Description,API Endpoint,Preconditions,Test Data,Test Steps,Expected Result,Actual Result,Pass/ Fail
+TS01,TC01,Verify that a new board can be created successfully.,POST /1/boards/,Valid API key and token.,"1. Key
+2. Token
+","1. Send a POST request to create a board.
+2. Verify the response status code is 200 OK.
+3. Validate the response body contains the correct board details (e.g., name, board_id).","Board is created successfully, and the response contains the correct data.",As per expectation,Passed
+TS02,TC02,Verify that a new list can be created on the board.,POST /1/lists,A valid board ID.,"1. Key
+2. Token","1. Send a POST request to create a list on the board.
+2. Verify the response status code is 200 OK.
+3. Validate the response body contains the correct list details.",List is created successfully on the specified board.,As per expectation,Passed
+TS03,TC03,Verify that a new card can be created in the list.,POST /1/cards,A valid list ID.,"1. Key
+2. Token
+","1. Send a POST request to create a card in the list.
+2. Verify the response status code is 200 OK.
+3. Validate the response body contains the correct card details.",Card is created successfully in the specified list.,As per expectation,Passed
+TS04,TC04,Verify that a board can be updated successfully.,PUT /1/boards/{id},A valid board ID.,"1. Key
+2. Token
+","1. Send a PUT request to update the board details (e.g., name, description).
+2. Verify the response status code is 200 OK.
+3. Validate the response body reflects the updated board details.",Board is updated successfully.,As per expectation,Passed
+TS05,TC05,Verify that a list can be updated successfully.,PUT /1/lists/{id},A valid list ID.,"1. Key
+2. Token
+","1. Send a PUT request to update the list details.
+2. Verify the response status code is 200 OK.
+3. Validate the response body reflects the updated list details.",List is updated successfully.,As per expectation,Passed
+TS06,TC06,Verify that a card can be updated successfully.,PUT /1/cards/{id},A valid card ID.,"1. Key
+2. Token
+","1. Send a PUT request to update the card details.
+2. Verify the response status code is 200 OK.
+3. Validate the response body reflects the updated card details.",Card is updated successfully.,As per expectation,Passed
+TS07,TC07,Verify that the board details can be retrieved successfully.,GET /1/boards/{id},A valid board ID.,"1. Key
+2. Token
+","1. Send a GET request to retrieve the board details.
+2. Verify the response status code is 200 OK.
+3. Validate the response body contains the correct board details.",Board details are retrieved successfully.,As per expectation,Passed
+TS08,TC08,Verify that the list details can be retrieved successfully.,GET /1/lists/{id},A valid list ID.,"1. Key
+2. Token
+","1. Send a GET request to retrieve the list details. 
+2. Verify the response status code is 200 OK. 
+3. Validate the response body contains the correct list details.
+",List details are retrieved successfully.,As per expectation,Passed
+TS09,TC09,Verify that the card details can be retrieved successfully.,GET /1/cards/{id},A valid card ID.,"1. Key
+2. Token
+","1. Send a GET request to retrieve the card details. 
+2. Verify the response status code is 200 OK. 
+3. Validate the response body contains the correct card details.",Card details are retrieved successfully.,As per expectation,Passed
+TS10,TC10,Verify that a checklist can be created for a card.,POST /1/checklists,A valid card ID.,"1. Key
+2. Token
+","1. Send a POST request to create a checklist. 
+2. Verify the response status code is 200 OK. 
+3. Validate the response body contains the correct checklist details.
+",Checklist is created successfully for the card.,As per expectation,Passed
+TS11,TC11,Verify that a checklist can be updated successfully.,PUT /1/checklists/{id},A valid checklist ID.,"1. Key
+2. Token
+","1. Send a PUT request to update the checklist details.
+2. Verify the response status code is 200 OK.
+3. Validate the response body reflects the updated checklist details.",Checklist is updated successfully.,As per expectation,Passed
+TS12,TC12,Verify that the checklist details can be retrieved successfully.,GET /1/checklists/{id},A valid checklist ID.,"1. Key
+2. Token
+","1. Send a GET request to retrieve the checklist details.
+2. Verify the response status code is 200 OK.
+3. Validate the response body contains the correct checklist details.",Checklist details are retrieved successfully.,As per expectation,Passed
+TS13,TC13,Verify that a checklist can be deleted successfully.,DELETE /1/checklists/{id},A valid checklist ID.,"1. Key
+2. Token
+","1. Send a DELETE request to remove the checklist.
+2. Verify the response status code is 200 OK.",Checklist is deleted successfully.,As per expectation,Passed
+TS14,TC14,Verify that a card can be deleted successfully.,DELETE /1/cards/{id},A valid card ID.,"1. Key
+2. Token
+","1. Send a DELETE request to remove the card.
+2. Verify the response status code is 200 OK.",Card is deleted successfully.,As per expectation,Passed
+TS15,TC15,Verify that a list can be deleted successfully.,DELETE /1/lists/{id},A valid list ID.,"1. Key
+2. Token
+","1. Send a DELETE request to remove the list.
+2. Verify the response status code is 200 OK.",List is deleted successfully.,As per expectation,Passed
+TS16,TC16,Verify that a board can be deleted successfully.,DELETE /1/boards/{id},A valid board ID.,"1. Key
+2. Token
+","1. Send a DELETE request to remove the board.
+2. Verify the response status code is 200 OK.",Board is deleted successfully.,As per expectation,Passed
